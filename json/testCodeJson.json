@@ -1,0 +1,7 @@
+[
+    {
+        "id":1,
+        "test_name":"Palindrom Number",
+        "algorithm":"palindrom.js"
+    }
+]

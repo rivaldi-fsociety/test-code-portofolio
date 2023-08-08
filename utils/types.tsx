@@ -1,0 +1,1 @@
+export type TestCodeProps = { id: number; test_name: string }
