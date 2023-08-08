@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { TestCodeProps } from '@/utils/types'
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { atomOneDark } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 import CIcon from '@coreui/icons-react';
 import * as icon from '@coreui/icons';
 import Link from 'next/link';
@@ -9,7 +9,7 @@ import Algorithm from '@/utils/algorithm'
 import CodeString from '@/utils/codeString'
 
 function DetailPage({props}:{props:TestCodeProps}) {
-    const codeString = CodeString(props.id)
+    const codeString = CodeString(props?.id)
     const [copy, setCopy] = useState<boolean>(false)
     const [resultAlgorithm, setResultAlgorithm] = useState<string>('the number you type, the algorithm will decide.')
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,7 +17,7 @@ function DetailPage({props}:{props:TestCodeProps}) {
         if(e.target.value == ''){
             setResultAlgorithm('the number you type, the algorithm will decide.')
         }else{
-            result = Algorithm(props.id, e.target.value)
+            result = Algorithm(props?.id, e.target.value)
             if(result){
                 setResultAlgorithm(e.target.value + ' is Palindrom Number.')
             }else{
@@ -32,7 +32,7 @@ function DetailPage({props}:{props:TestCodeProps}) {
                 {/* Left Side */}
                 <div className="card h-fit w-6/12 shadow-xl bg-base-300">
                     <div className='flex justify-between px-4 py-2 text-warning text-xs items-center'>
-                        <p className='text-sm'>{props.test_name} Code</p>
+                        <p className='text-sm'>{props?.test_name} Code</p>
                         {copy ? 
                             <div className="tooltip tooltip-open tooltip-right" data-tip="copied!">
                                 <button className='py-1 inline-flex items-center gap-1'>
